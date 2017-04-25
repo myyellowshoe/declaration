@@ -1,0 +1,22 @@
+#background-container{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+canvas {
+  position: absolute;
+  top:0;
+  left:0;
+}
+
+
+/* Info */
+@keyframes show-info {
+  0% {
+    transform: rotateY(120deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}

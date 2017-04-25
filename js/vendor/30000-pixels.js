@@ -1,24 +1,25 @@
 
-
-var window_width = window.innerWidth || document.body.clientWidth,
-    window_height = window.innerHeight || document.body.clientHeight;
-
+//Desktop
 //var FLEX_ROWS = ROWS * SPACING + MARGIN * 2;
+var window_width = window.innerWidth || document.body.clientWidth,
+  window_height = document.getElementsByTagName('body')[0].scrollHeight || document.body.clientHeight;
 
-var ROWS = Math.floor(window_height / 3);
-var COLS = Math.floor(window_width / 3);
-
-console.log(ROWS);
-console.log(COLS);
+if(window_width > 500){
+  var ROWS = 200;
+  var COLS = 400;
+  MARGIN = 100;
+}else{
+  var ROWS = Math.floor(window_height / 3);
+  var COLS = Math.floor(window_width / 3);
+  var MARGIN = 0;
+}
 
 var NUM_PARTICLES = ( ROWS * COLS ),
     THICKNESS = Math.pow( 80, 2 ),
     SPACING = 3,
-    MARGIN = 0,
     COLOR = 220,
     DRAG = 0.95,
     EASE = 0.25,
-
     /*
 
     used for sine approximation, but Math.sin in Chrome is still fast enough :)http://jsperf.com/math-sin-vs-sine-approximation
@@ -82,14 +83,14 @@ function init() {
     list[i] = p;
   }
 
-  container.addEventListener( 'mousemove', function(e) {
-
-    bounds = container.getBoundingClientRect();
-    mx = e.clientX - bounds.left;
-    my = e.clientY - bounds.top;
-    man = true;
-
-  });
+  // container.addEventListener( 'mousemove', function(e) {
+  //
+  //   bounds = container.getBoundingClientRect();
+  //   mx = e.clientX - bounds.left;
+  //   my = e.clientY - bounds.top;
+  //   man = true;
+  //
+  // });
 
   if ( typeof Stats === 'function' ) {
     document.body.appendChild( ( stats = new Stats() ).domElement );

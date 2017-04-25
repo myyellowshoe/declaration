@@ -98,16 +98,22 @@ textarea {
 
 
   #content{
-    margin: 125px auto 0 auto;
+    margin: 125px auto 125px auto;
     width: 100%;
     height:600px;
     max-width: 760px;
     position: absolute;
     z-index: 5;
+    /**/
     left:0;
     right:0;
     padding: 0 29px;
     box-sizing: border-box;
+  }
+  @media screen and (min-width: 765px) {
+    #content {
+        margin-top:160px;
+    }
   }
 
   #logo{
@@ -143,9 +149,36 @@ textarea {
     background: transparent;
     border-bottom: 1px solid #be402b;
     padding-bottom: 2px;
+    border-radius: 0 0 0 0;
   }
   #email-signup:focus{
     outline:none;
+  }
+  #email-thanks{
+    display:none;
+    color: #be402b;
+  }
+  #submit-email{
+    display: none;
+    color:#111;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    border-radius: 4px;
+  }
+  #content.adding-email #submit-email{
+    display: inline-block;
+  }
+  #content.email-submitted #stay-in-touch{
+    display: none;
+  }
+  #content.email-submitted #email-thanks{
+    display: inline-block;
+  }
+
+  @media screen and (max-width: 480px) {
+    #input-area {
+        display: block;
+    }
   }
 
   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
